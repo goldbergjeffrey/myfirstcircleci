@@ -21,6 +21,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Runs brew tap for qlik-oss
+      - name: tap qlik-oss
+        run: brew tap qlik-oss/taps
       
       # Runs install for qlik-cli
       - name: install qlik-cli
