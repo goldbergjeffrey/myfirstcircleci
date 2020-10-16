@@ -32,8 +32,9 @@ jobs:
       # Runs a set of commands using qlik-cli
       - name: Run a multi-line script
         run: |
-          qlik context create $tenant --api-key ${{ secrets.QLIKAPIKEY}}
-          qlik context use $tenant
+          qlik context create $contextName --server $tenant --api-key ${{ secrets.QLIKAPIKEY}}
+          qlik context use $contextName
           sh ./reload.sh
         env:
-          tenant: jog2.us.qlikcloud.com
+          contextName: jog2
+          tenant: https://jog2.us.qlikcloud.com
